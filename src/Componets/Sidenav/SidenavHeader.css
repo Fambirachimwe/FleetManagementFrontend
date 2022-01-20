@@ -1,0 +1,20 @@
+.sidenavHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px;
+    background-color: white;
+}
+
+.sidenavHeader__title {
+    font-size: 16px;
+}
+
+.sidenavHeader__title > span {
+    display: block;
+}
+
+.sidenavHeader__menu > .menu_icon {
+    color: #008d57 !important ;
+    font-size: 32px;
+}

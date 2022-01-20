@@ -1,0 +1,41 @@
+.vehiclerequest {
+    margin: 32px;
+}
+
+.vehiclerequest__title{
+    color: #008d57;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.vehiclerequest__form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.vehiclerequest__form > textarea{
+    border: 2px solid #008d57;
+    padding: 16px;
+    border-radius: 5px;
+    margin: 8px 0px;
+}
+
+.vehiclerequest__form >  select {
+    padding: 8px;
+    border: 2px solid #008d57;
+    border-radius: 5px;
+    margin: 8px 0px;
+}
+
+.vehiclerequest__form > button {
+    background-color: #008d57;
+    color: white;
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+}
+
+.vehiclerequest__form > button:hover{
+    background-color: #044e32;
+    color: white;
+} 

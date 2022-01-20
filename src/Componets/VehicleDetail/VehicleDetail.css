@@ -1,0 +1,101 @@
+.vehicledetail {
+    margin: 32px;
+    padding: 16px;
+    width: inherit;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.back__icon{
+    margin-right: 24px !important;
+    top: -5px;
+}
+
+.name{
+    position: relative;
+    top: 6px;
+}
+
+.name h3 > span{
+    margin-left: 12px;
+    color: #008d57;
+}
+
+.vehicledetail__header {
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px ;
+
+}
+
+.vehicledetail__header__left{
+    display: flex;
+    justify-content: space-between;
+}
+
+.vehicledetail__header > button {
+
+    text-transform: none;
+    font-weight: bold;
+    color: white;
+    background-color: #008d57;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    
+
+}
+
+.statusButton > button {
+    text-transform: none;
+    font-weight: bold;
+    color: white;
+    background-color: #008d57;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+
+
+.vehicledetail__header > button:hover {
+    box-shadow: 0 1px 20px #c3c3c3 !important;
+    background-color: #016b43;
+}
+
+.image__container {
+    /* flex-direction: 1; */
+    /* padding-right: 32px; */
+    width: 400px;
+    height: 100%;
+    /* background-color: rgb(226, 226, 226); */
+    border-radius: 10px;
+    /* background: #008D57;/ */
+    /* background: -moz-linear-gradient(left, #008D57 0%, #186B8D 100%);
+    background: -webkit-linear-gradient(left, #008D57 0%, #186B8D 100%);
+    background: linear-gradient(to right, #008D57 0%, #186B8D 100%); */
+    }
+
+.vehicledetails__content {
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    /* flex: .4; */
+    width: 50%;
+    
+    padding: 0 0 24px 24px;
+    margin: 0 auto;
+}
+
+.openinnew {
+    color: #008d57;
+}
+
+.details > table > tr {
+    /* border-bottom: none !important; */
+}
