@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "full-dev": "concurrently \"cd ../backend && nodemon server.js  \"  \"npm start \" "
+    "full-dev": "concurrently \"cd ../../v2backend  && npm run develop  \"  \"npm start \" "
   },
   "eslintConfig": {
     "extends": [
