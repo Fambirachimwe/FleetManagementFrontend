@@ -1,13 +1,7 @@
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router';
+
 import { store } from '../stateManagement/store';
 const base_url = "http://localhost:1337/api"
-// base url
-// axios
-
-// login 
-
-
 
 
 export const register =  (username, email, password) => {

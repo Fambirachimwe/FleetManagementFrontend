@@ -11,7 +11,7 @@ const Users = () => {
     const { data } = useQuery("users", fetchUsers);
 
     const [open, setOpen] = useState(null);
-    const [openModal, setOpenModal] = useState(false)
+   
 
 
     const handleOpen = (index) => {
@@ -24,10 +24,7 @@ const Users = () => {
     return (
         <div className="users">
 
-            {
-                data ? (console.log(data.data)) : null
-            }
-
+            
             <div className="vehicles__header userTitle">
                 <h3 className="vehicles__header__title  userTitle">Users</h3>
 

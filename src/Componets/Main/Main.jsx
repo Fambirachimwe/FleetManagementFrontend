@@ -17,7 +17,7 @@ import UserFuelRequests from '../UserFuelRequests/UserFuelRequests';
 
 const Main = ({ user }) => {
 
-    console.log(user)
+
     return (
         <div className="main">
             <MainHeader />

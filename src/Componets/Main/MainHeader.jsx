@@ -10,8 +10,7 @@ const MainHeader = () => {
     const location = useLocation()
 
     
-    console.log(location)
-
+   
     return (
         <div className="mainheader">
             <div className="mainheader__left__container">

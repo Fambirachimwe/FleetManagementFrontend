@@ -1,4 +1,3 @@
-import { isAuthenticated } from "../api/api"
 
 const initState = {
     isAuth: false,

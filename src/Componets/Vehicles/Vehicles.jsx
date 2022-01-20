@@ -43,7 +43,7 @@ const Vehicles = () => {
 
             <div className="vehicles__header">
                 <h3 className="vehicles__header__title">Vehicles</h3>
-                {data? (console.log(data)) : null}
+            
 
                 <div className="vehicles__header__filters">
                     <Button onClick={() => setOpenModal(!openModal)}>Add Vehiacle</Button>

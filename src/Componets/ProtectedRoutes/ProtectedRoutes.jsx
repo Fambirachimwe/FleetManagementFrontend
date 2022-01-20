@@ -2,15 +2,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
-import { isAuthenticated } from '../../api/api';
+
+ 
 
 
 
-
-const ProtectedRoute = ({ isAuth, login }) => {
-    // console.log(isAuthenticated())
-    console.log(isAuth)
-
+const ProtectedRoute = ({ isAuth}) => {
+    
 
     return (
         isAuth ? <Outlet /> : <Navigate to="/login" />

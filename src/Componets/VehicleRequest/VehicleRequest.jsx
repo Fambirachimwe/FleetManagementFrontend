@@ -2,7 +2,7 @@ import { Button, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { connect } from 'react-redux';
-import { addFuelRequest, addVehicleRequest } from '../../api/api';
+import {  addVehicleRequest } from '../../api/api';
 import "./VehicleRequest.css";
 import Swal from 'sweetalert2';
 
