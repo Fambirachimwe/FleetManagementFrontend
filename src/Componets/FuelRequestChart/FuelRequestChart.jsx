@@ -56,10 +56,7 @@ const FuelRequestChart = () => {
     return (
         <div className="chart">
 
-            {
-                data ? (console.log(data.data.data)) : null
-            }
-
+        
             <Bar ref={ref}
                 data={chartData}
                 options={{

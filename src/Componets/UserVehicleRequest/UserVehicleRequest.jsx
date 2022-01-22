@@ -3,21 +3,15 @@ import { Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { connect } from 'react-redux';
-import { fetchFuelRequest } from '../../api/api';
-
-import Construction from "../../images/construction.svg";
+import { fetchVehicleRequest } from '../../api/api';
 import MoreCard from '../MoreCard/MoreCard';
 
-const UserFuelRequests = ({user}) => {
-
-   
-
-
-    const { data } = useQuery('fuel-requests', fetchFuelRequest);
+const UserVehicleRequest = ({user}) => {
+    const { data } = useQuery('vehicle-request', fetchVehicleRequest);
 
 
     const [open, setOpen] = useState(null);
-    // const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
 
 
     const handleOpen = (index) => {
@@ -30,9 +24,9 @@ const UserFuelRequests = ({user}) => {
     return (
         <div style={{ margin: "32px" }} className="userFuel">
 
-
+           
             <div className="vehicles__header">
-                <h3 className="vehicles__header__title">Fuel Requests</h3>
+                <h3 className="vehicles__header__title">Vehicle Requests</h3>
 
 
                 
@@ -41,13 +35,10 @@ const UserFuelRequests = ({user}) => {
 
                 <thead>
                     <th>id</th>
-                    <th>Volume</th>
-                    <th>Type</th>
-                    <th>Request Type</th>
-                   
-
+                    <th>Purpose</th>
                     <th>Status</th>
                     <th>Applicant</th>
+                    
 
 
                     <th><MoreHoriz /></th>
@@ -66,16 +57,12 @@ const UserFuelRequests = ({user}) => {
                             data.data.data.map(vehicle => (
                                 <tr key={vehicle.id} >
                                     <td>{vehicle.id}</td>
-                                    <td>{vehicle.attributes.volume}</td>
-                                    <td>{vehicle.attributes.typeOfFuel}</td>
-                                    <td>{vehicle.attributes.typeOfRequest}</td>
-                                    <td>{vehicle.attributes.approved === null ? "Pendding" : (
-                                        vehicle.attributes.approved ? ("Approved") : ("Disaaproved")
-                                    )}</td>
+                                    <td>{vehicle.attributes.purpose}</td>
+                                    <td>{vehicle.attributes.approved !== true ? "False" : ("True")}</td>
 
                                     <td>{vehicle.attributes.applicant.data ? vehicle.attributes.applicant.data.attributes.username : "N/A"}</td>
 
-                                 
+
                                     <td>
 
                                         <Tooltip
@@ -99,7 +86,7 @@ const UserFuelRequests = ({user}) => {
 
 
                                                     open === vehicle.id ?
-                                                        <MoreCard id={vehicle.id} url={`/vehicle-request/${vehicle.id}`} from={"fuelRequest"} /> : null
+                                                        <MoreCard id={vehicle.id} url={`/vehicle-request/${vehicle.id}`} from={"vehicleRequest"} /> : null
                                                 }
                                             </div>
                                         </Tooltip>
@@ -120,7 +107,7 @@ const UserFuelRequests = ({user}) => {
             </table>
         </div>
     )
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -128,4 +115,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(UserFuelRequests)
+export default connect(mapStateToProps)(UserVehicleRequest);

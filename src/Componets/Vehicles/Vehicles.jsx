@@ -46,7 +46,7 @@ const Vehicles = () => {
             
 
                 <div className="vehicles__header__filters">
-                    <Button onClick={() => setOpenModal(!openModal)}>Add Vehiacle</Button>
+                    <Button onClick={() => setOpenModal(!openModal)}>Add Vehicles</Button>
                     <Button>All</Button>
                     <Button>Assigned</Button>
                     <Button>OOF</Button>

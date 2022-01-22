@@ -4,9 +4,12 @@ import { useMutation, useQueryClient } from 'react-query';
 import { addFuelRequest } from '../../api/api';
 import "./FuelRequest.css";
 import Swal from 'sweetalert2';
+import { connect } from 'react-redux';
 
 
-const FuelRequest = () => {
+const FuelRequest = ({user}) => {
+
+    console.log(user)
 
     const [typeOfRequest, setTypeOfRequest] = useState("")
     const [volume, setVolume] = useState(0)
@@ -14,13 +17,16 @@ const FuelRequest = () => {
     const [purpose, setPurpose] = useState("")
     const [millage, setMillage] = useState(0);
 
+    const applicant = user.data.user.id
+    console.log(applicant)
+
     const mutation = useMutation(addFuelRequest);
     const queryClient = useQueryClient();
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        mutation.mutate({ typeOfRequest, volume, typeOfFuel, purpose, millage }, {
+        mutation.mutate({ typeOfRequest, volume, typeOfFuel, purpose, millage, applicant}, {
             onSuccess: () => {
                 queryClient.invalidateQueries('fuel-requests')
                 Swal.fire({
@@ -38,6 +44,9 @@ const FuelRequest = () => {
 
     return (
         <div className="fuelrequest">
+            {
+                console.log(user)
+            }
             <div className="fuelrequest__title">
                 <h3>Fuel Request</h3>
             </div>
@@ -67,4 +76,10 @@ const FuelRequest = () => {
     )
 }
 
-export default FuelRequest
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+export default connect(mapStateToProps)(FuelRequest)

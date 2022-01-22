@@ -14,6 +14,8 @@ const Fuel = () => {
     return (
         <div className="fuel">
 
+            {data ? (console.log(data)) : null}
+
             <div className="reports__detail__option">
 
                 <div className="reports__detail__card__fuel">

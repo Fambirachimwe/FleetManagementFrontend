@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 import FuelRequestChart from '../FuelRequestChart/FuelRequestChart';
 import { useQuery } from 'react-query';
 
-import {fetchFuel} from '../../api/api'
+import {fetchFuel, fetchVehicles} from '../../api/api'
 
 
-const Reports = ({allVehicles, vehicles}) => {
+const Reports = ({allVehicles}) => {
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -19,13 +19,14 @@ const Reports = ({allVehicles, vehicles}) => {
 
     const { data } = useQuery("fuel",fetchFuel);
 
+    const vehicles = useQuery("vehicles", fetchVehicles);
+
     const selectionRange = {
         startDate: startDate,
         endDate: endDate,
         key: 'selection',
     }
-    console.log(startDate)
-    console.log(endDate)
+  
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -77,12 +78,14 @@ const Reports = ({allVehicles, vehicles}) => {
 
                             <div className="card__detail__row">
                                 <h3>Assigned Vehicles</h3>
-                                <p>{vehicles.filter((vehicle) => vehicle.attributes.status === "assigned").length}</p>
+
+                                {/* {vehicles ? console.log(vehicles) : null} */}
+                                <p>{vehicles.data ? vehicles.data.data.data.filter((vehicle) => vehicle.attributes.status === "assigned").length : null}</p>
                             </div>
 
                             <div className="card__detail__row">
                                 <h3>Out of service Vehicles</h3>
-                                <p>{vehicles.filter((vehicle) => vehicle.attributes.status === "outofservice").length || 0}</p>
+                                <p>{vehicles.data ? vehicles.data.data.data.filter((vehicle) => vehicle.attributes.status === "outofservice").length || 0 : null}</p>
                             </div>
 
 
@@ -90,7 +93,7 @@ const Reports = ({allVehicles, vehicles}) => {
                     </div>
                 </div>
 
-                <div className="reports__detail__option">
+                {/* <div className="reports__detail__option">
 
                     <div className="reports__detail__option__header">
                         <h2>Issues</h2>
@@ -120,7 +123,7 @@ const Reports = ({allVehicles, vehicles}) => {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="reports__detail__option">
 

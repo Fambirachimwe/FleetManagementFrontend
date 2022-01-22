@@ -12,6 +12,7 @@ import FuelRequest from '../FuelRequest/FuelRequest';
 import Users from '../Users/Users';
 import { connect } from 'react-redux';
 import UserFuelRequests from '../UserFuelRequests/UserFuelRequests';
+import UserVehicleRequest from '../UserVehicleRequest/UserVehicleRequest';
 
 
 
@@ -51,7 +52,7 @@ const Main = ({ user }) => {
 
                     <Route path="/user-fuel-request" element={<UserFuelRequests />} />
 
-                    <Route path="/user-vehicle-requests" element={<UserFuelRequests />} />
+                    <Route path="/user-vehicle-requests" element={<UserVehicleRequest/>} />
 
                     <Route path="/issues" element={<UserFuelRequests />} />
 

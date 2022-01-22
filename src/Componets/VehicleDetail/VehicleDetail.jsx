@@ -70,7 +70,7 @@ const VehicleDetail = () => {
                                 </tr>
                                 <tr>
                                     <td>Department</td>
-                                    <td>{data.data.data.attributes.department.data.attributes.name}</td>
+                                    {/* <td>{data.data.data.attributes.department.data.attributes.name}</td> */}
                                 </tr>
                                 <tr>
                                     <td>Service history</td>
