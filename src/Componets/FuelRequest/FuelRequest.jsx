@@ -12,10 +12,10 @@ const FuelRequest = ({user}) => {
     console.log(user)
 
     const [typeOfRequest, setTypeOfRequest] = useState("")
-    const [volume, setVolume] = useState(0)
+    const [volume, setVolume] = useState(null)
     const [typeOfFuel, setFuelType] = useState("")
     const [purpose, setPurpose] = useState("")
-    const [millage, setMillage] = useState(0);
+    const [millage, setMillage] = useState(null);
 
     const applicant = user.data.user.id
     console.log(applicant)
@@ -36,7 +36,17 @@ const FuelRequest = ({user}) => {
                     confirmButtonText: 'Done'
                 })
 
+            },
+            onError: () => {
+                // queryClient.invalidateQueries('vehicles')
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Request Failed',
+                    text: `Fuel request failed`,
+                    
+                });
             }
+            
         })
 
 
@@ -53,19 +63,20 @@ const FuelRequest = ({user}) => {
 
             <form className="fuel__request__form">
                 <select value={typeOfRequest} onChange={(e) => setTypeOfRequest(e.target.value)} name="Request for" id="cars">
+                    <option disabled={true} value="topUpVehicle">Select Type of requset</option>
                     <option value="topUpVehicle">Top Up Vehicle</option>
                     <option value="personalCar">Personal Car</option>
                 </select>
 
-                <input onChange={(e) => setVolume(e.target.value)} type="number" value={volume} placeholder="Volume" />
-                <input type="text" onChange={(e) => setFuelType(e.target.value)} value={typeOfFuel} placeholder="Type of Fuel" />
+                <input required onChange={(e) => setVolume(e.target.value)} type="number" value={volume} placeholder="Volume" />
+                <input required type="text" onChange={(e) => setFuelType(e.target.value)} value={typeOfFuel} placeholder="Type of Fuel" />
 
                 {/* <input type="text" placeholder="purpose" /> */}
 
                 <textarea name="" id="" value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder="purpose" cols="30" rows="5"></textarea>
 
 
-                <input type="number" value={millage} onChange={(e) => setMillage(e.target.value)} placeholder="Millage" />
+                <input required type="number" value={millage} onChange={(e) => setMillage(e.target.value)} placeholder="Millage" />
 
 
                 <Button onClick={handleSubmit}>Submit Request</Button>

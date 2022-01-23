@@ -40,6 +40,16 @@ const AddVehicleModal = ({ setOpenModal }) => {
                     text: `Vehicle successfull registered`,
                     
                 });
+            }, 
+
+            onError: () => {
+                // queryClient.invalidateQueries('vehicles')
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Vehicle Registration Failed',
+                    text: `Vehicle not registered`,
+                    
+                });
             }
         })
 

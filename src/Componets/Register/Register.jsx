@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
 import './Register.css';
 import { register } from '../../api/api';
+import Swal from 'sweetalert2';
 
 
 
@@ -15,17 +16,36 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
     const handleSubmit = () => {
         // e.preventDefault();
         register(username, email, password).then((data) => {
-            console.log(data);
+
+           
+            // console.log(data);
+        }).catch(err => {
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Registration Failure',
+                text: `Please resolve the errors to continue`,
+                
+            });
+            
         });
 
         setUsername("");
         setEmail("");
         setPassword("");
-        alert('Registration Successful')
-        navigate('/login')
+        Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful',
+            text: `Registration Successful Please Login into the system`,
+            
+        }).then(() => {
+            navigate('/login')
+        });
+        
     }
 
 

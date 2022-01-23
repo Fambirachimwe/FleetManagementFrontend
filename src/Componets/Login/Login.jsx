@@ -6,6 +6,7 @@ import { login } from "../../api/api"
 import {useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthImage from "../../images/authImage.svg"
+import Swal from "sweetalert2";
 
 
 const Login = ({isAuth, userLogin, setUser}) => {
@@ -30,18 +31,21 @@ const Login = ({isAuth, userLogin, setUser}) => {
             userLogin(); 
             setUser(response); 
 
-            console.log(response);
+            // console.log(response);
 
-            // sessionStorage.setItem('token', response.data.)
-        });
+        }).catch(err => {
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Authentication Failure',
+                text: `Email or Password is incorrect`,
+                
+            });
+
+        })
         
 
-        // setTimeout(() => {
-            
-        //     navigate('/')
-        // }, 2)
-
-        
+       
 
     }
 
@@ -63,13 +67,13 @@ const Login = ({isAuth, userLogin, setUser}) => {
 
 
                 <div className="login__input">
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeHolder="Email" name="email" id="email" />
+                    <input type="text" required value={email} onChange={(e) => setEmail(e.target.value)} placeHolder="Email" name="email" id="email" />
 
                     <Email className="icon" />
                 </div>
 
                 <div className="login__input">
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" name="password" id="email" />
+                    <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" name="password" id="email" />
 
                     <Password className="icon" />
                 </div>
