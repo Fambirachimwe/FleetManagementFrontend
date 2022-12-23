@@ -7,9 +7,9 @@ import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 
 
-const FuelRequest = ({user}) => {
+const FuelRequest = ({ user }) => {
 
-    console.log(user)
+
 
     const [typeOfRequest, setTypeOfRequest] = useState("")
     const [volume, setVolume] = useState(null)
@@ -18,7 +18,7 @@ const FuelRequest = ({user}) => {
     const [millage, setMillage] = useState(null);
 
     const applicant = user.data.user.id
-    console.log(applicant)
+
 
     const mutation = useMutation(addFuelRequest);
     const queryClient = useQueryClient();
@@ -26,7 +26,7 @@ const FuelRequest = ({user}) => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        mutation.mutate({ typeOfRequest, volume, typeOfFuel, purpose, millage, applicant}, {
+        mutation.mutate({ typeOfRequest, volume, typeOfFuel, purpose, millage, applicant }, {
             onSuccess: () => {
                 queryClient.invalidateQueries('fuel-requests')
                 Swal.fire({
@@ -43,10 +43,10 @@ const FuelRequest = ({user}) => {
                     icon: 'warning',
                     title: 'Request Failed',
                     text: `Fuel request failed`,
-                    
+
                 });
             }
-            
+
         })
 
 
@@ -54,9 +54,7 @@ const FuelRequest = ({user}) => {
 
     return (
         <div className="fuelrequest">
-            {
-                console.log(user)
-            }
+
             <div className="fuelrequest__title">
                 <h3>Fuel Request</h3>
             </div>

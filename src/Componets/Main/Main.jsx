@@ -13,6 +13,8 @@ import Users from '../Users/Users';
 import { connect } from 'react-redux';
 import UserFuelRequests from '../UserFuelRequests/UserFuelRequests';
 import UserVehicleRequest from '../UserVehicleRequest/UserVehicleRequest';
+import CustomerMain from './CustomerMain';
+import VehicleRequestDetailPage from '../VehicleRequest/VehicleRequestDetailPage';
 
 
 
@@ -27,14 +29,19 @@ const Main = ({ user }) => {
                 <Routes>
 
                     {
-                        user.data.user.myRole === "Authenticated" ? 
-                        (
-                            <Route path="/fuel-request" element={<FuelRequest />} />
-                        ) : 
-                        
-                        (
-                            <Route path="/" element={<MainApp />} />
-                        )
+                        user.data.user.myRole === "Authenticated" ?
+                            (
+                                <>
+                                    <Route path="/fuel-request" element={<FuelRequest />} />
+                                    <Route path="/vehicle-request" element={<VehicleRequest />} />
+                                    <Route path="/vehicle-request/:id" element={<VehicleRequestDetailPage />} />
+                                    <Route path="/" element={<CustomerMain />} />
+                                </>
+                            ) :
+
+                            (
+                                <Route path="/" element={<MainApp />} />
+                            )
                     }
 
 
@@ -46,13 +53,14 @@ const Main = ({ user }) => {
                     <Route path="/reports" element={<Reports />} />
 
                     <Route path="/vehicle-request" element={<VehicleRequest />} />
+                    <Route path="/vehicle-request/:id" element={<VehicleRequestDetailPage />} />
 
                     <Route path="/fuel-request" element={<FuelRequest />} />
                     <Route path="/users" element={<Users />} />
 
                     <Route path="/user-fuel-request" element={<UserFuelRequests />} />
 
-                    <Route path="/user-vehicle-requests" element={<UserVehicleRequest/>} />
+                    <Route path="/user-vehicle-requests" element={<UserVehicleRequest />} />
 
                     <Route path="/issues" element={<UserFuelRequests />} />
 

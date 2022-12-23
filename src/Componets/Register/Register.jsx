@@ -1,6 +1,6 @@
 import { Email, Password, VerifiedUser } from '@mui/icons-material';
 import React, { useState } from 'react';
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import { register } from '../../api/api';
 import Swal from 'sweetalert2';
@@ -21,7 +21,7 @@ const Register = () => {
         // e.preventDefault();
         register(username, email, password).then((data) => {
 
-           
+
             // console.log(data);
         }).catch(err => {
 
@@ -29,9 +29,9 @@ const Register = () => {
                 icon: 'warning',
                 title: 'Registration Failure',
                 text: `Please resolve the errors to continue`,
-                
+
             });
-            
+
         });
 
         setUsername("");
@@ -41,11 +41,11 @@ const Register = () => {
             icon: 'success',
             title: 'Registration Successful',
             text: `Registration Successful Please Login into the system`,
-            
+
         }).then(() => {
             navigate('/login')
         });
-        
+
     }
 
 
@@ -69,7 +69,7 @@ const Register = () => {
                 </div>
 
                 <div className="register__input">
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeHolder="Email" name="email" id="email" />
+                    <input type="email" required={true} value={email} onChange={(e) => setEmail(e.target.value)} placeHolder="Email" name="email" id="email" />
 
                     <Email className="icon" />
                 </div>

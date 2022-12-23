@@ -14,7 +14,7 @@ const Fuel = () => {
     return (
         <div className="fuel">
 
-            {data ? (console.log(data)) : null}
+            {/* {data ? (console.log(data)) : null} */}
 
             <div className="reports__detail__option">
 

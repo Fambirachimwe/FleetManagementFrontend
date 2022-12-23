@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Sidenav.css';
 import SidenavHeader from './SidenavHeader';
-import { Home, Commute,  GroupAdd, Warning, LocalGasStation,  Report, ExitToApp, LocalGasStationTwoTone, CommuteTwoTone } from "@mui/icons-material";
+import { Home, Commute, GroupAdd, Warning, LocalGasStation, Report, ExitToApp, LocalGasStationTwoTone, CommuteTwoTone } from "@mui/icons-material";
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -9,7 +9,7 @@ const Sidenav = ({ isAuth, userLogout, user }) => {
 
     const navigate = useNavigate();
 
-  
+
 
     useEffect(() => {
         if (isAuth === false || localStorage.getItem('token') === null) {
@@ -39,6 +39,8 @@ const Sidenav = ({ isAuth, userLogout, user }) => {
                 {
                     user.data.user.myRole === "Authenticated" || user.data.user.myRole === null ? (
                         <>
+
+                            <Link to="/"><li className="link__item"><span><Home /></span>Dashboard</li></Link>
                             <Link to='/fuel-request'><li className="link__item"><span><LocalGasStation /></span> Fuel Request</li></Link>
 
                             <Link to='/vehicle-request'><li className="link__item"><span><Commute /></span> Vehicle Request</li></Link>

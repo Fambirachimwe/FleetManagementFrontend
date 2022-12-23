@@ -4,14 +4,14 @@ import { store } from '../stateManagement/store';
 const base_url = "http://localhost:1337/api"
 
 
-export const register =  (username, email, password) => {
+export const register = (username, email, password) => {
 
-    return axios.post(`${base_url}/auth/local/register`,{
+    return axios.post(`${base_url}/auth/local/register`, {
         username: username,
         email: email,
         password: password
     });
-    
+
 
 }
 
@@ -57,12 +57,12 @@ export const fetchVehicleById = async (id) => {
 }
 
 
-export const  addVehicle = async (data) => {
+export const addVehicle = async (data) => {
     const token = localStorage.getItem('token');
     const response = await axios({
         method: "post",
         url: `${base_url}/vehicles/`,
-        data: {data},
+        data: { data },
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -77,7 +77,7 @@ export const isAuthenticated = async () => {
     const token = localStorage.getItem('token');
     var isAuth;
 
-    if(token){
+    if (token) {
         await axios({
             method: "GET",
             url: `${base_url}/users/me`,
@@ -87,23 +87,23 @@ export const isAuthenticated = async () => {
             }
         }).then(data => {
 
-            if(data.status === 200){
+            if (data.status === 200) {
                 console.log(isAuth)
                 isAuth = true
                 store.dispatch({ type: "LOGGED_IN", isAuth: isAuth })
                 console.log(isAuth)
-            } else{
+            } else {
                 isAuth = false;
                 store.dispatch({ type: "LOGOUT", isAuth: isAuth })
                 // return <Navigate to="/login"/>
             }
 
-        }) 
-    
+        })
+
     } else {
-        
+
         isAuth = false
-        
+
     }
 
     return isAuth;
@@ -127,11 +127,13 @@ export const fetchIssuses = async () => {
 
 export const addFuelRequest = async (data) => {
 
+
+
     const token = localStorage.getItem('token');
     const response = await axios({
         method: "post",
         url: `${base_url}/fuel-requests/`,
-        data: {data},
+        data: { data },
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -143,12 +145,13 @@ export const addFuelRequest = async (data) => {
 }
 
 export const addVehicleRequest = async (data) => {
+    console.log(data)
 
     const token = localStorage.getItem('token');
     const response = await axios({
         method: "post",
         url: `${base_url}/vehicle-requests/`,
-        data: {data},
+        data: { data },
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -175,6 +178,18 @@ export const fetchFuelRequest = async () => {
 export const fetchVehicleRequest = async () => {
     const token = localStorage.getItem('token');
     const response = await axios.get(`${base_url}/vehicle-requests?populate=*`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    return response;
+}
+
+export const fetchVehicleRequestById = async (id) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(`${base_url}/vehicle-requests/${id}?populate=*`, {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -212,87 +227,87 @@ export const fetchUsers = async () => {
 
 
 
-export const AppoveFuelRequest= async (id) => {
+export const AppoveFuelRequest = async (id) => {
     const token = localStorage.getItem('token');
     const response = await fetch(`${base_url}/fuel-requests/${id}`,
-    
-    {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
 
-        body: JSON.stringify({
-           data:  {"approved": true}
-        })
-    }
-    
+        {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                data: { "approved": true }
+            })
+        }
+
     );
 
     return response.json();
 }
 
-export const disAppoveFuelRequest= async (id) => {
+export const disAppoveFuelRequest = async (id) => {
     const token = localStorage.getItem('token');
     const response = await fetch(`${base_url}/fuel-requests/${id}`,
-    
-    {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
 
-        body: JSON.stringify({
-           data:  {"approved": false}
-        })
-    }
-    
+        {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                data: { "approved": false }
+            })
+        }
+
     );
 
     return response.json();
 }
 
 
-export const AppoveVehicleRequest= async (id) => {
+export const AppoveVehicleRequest = async (id) => {
     const token = localStorage.getItem('token');
     const response = await fetch(`${base_url}/vehicle-requests/${id}`,
-    
-    {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
 
-        body: JSON.stringify({
-            data:  {"approved": true}
-         })
-    }
-    
+        {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                data: { "approved": true }
+            })
+        }
+
     );
 
     return response.json();
 }
 
 
-export const disAppoveVehicleRequest= async (id) => {
+export const disAppoveVehicleRequest = async (id) => {
     const token = localStorage.getItem('token');
     const response = await fetch(`${base_url}/vehicle-requests/${id}`,
-    
-    {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
 
-        body: JSON.stringify({
-            data:  {"approved": false}
-         })
-    }
-    
+        {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                data: { "approved": false }
+            })
+        }
+
     );
 
     return response.json();

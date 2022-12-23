@@ -18,3 +18,15 @@
     color: #008d57 !important ;
     font-size: 32px;
 }
+
+.link__item {
+    /* display: flex; */
+    /* padding: 12px;
+    align-items: center; */
+    transition: .4s ease-in;
+    font-weight: 600;
+}
+
+.link__item:hover{
+    color: #008d57;
+}

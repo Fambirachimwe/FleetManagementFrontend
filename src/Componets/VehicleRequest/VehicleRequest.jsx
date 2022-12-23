@@ -13,13 +13,13 @@ const VehicleRequest = ({ vehicles, user }) => {
     const mutation = useMutation(addVehicleRequest);
     const queryClient = useQueryClient();
 
-    const {data} = useQuery('vehicles', fetchVehicles);
+    const { data } = useQuery('vehicles', fetchVehicles);
 
-    if(data){
-        console.log(data)
-    }
+    // if (data) {
+    //     console.log(data)
+    // }
 
-    const [selectVehicle, setSelectVehicle] = useState("");
+    const [selectVehicle, setSelectVehicle] = useState("1");
     const [purpose, setPurpose] = useState("");
 
     const applicant = user.data.user.id
@@ -27,8 +27,9 @@ const VehicleRequest = ({ vehicles, user }) => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        var vehicle = parseInt(selectVehicle);
 
-        mutation.mutate({ selectVehicle, purpose, applicant }, {
+        mutation.mutate({ vehicle, purpose, applicant }, {
             onSuccess: () => {
                 queryClient.invalidateQueries('vehicle-requests')
                 Swal.fire({
@@ -51,7 +52,7 @@ const VehicleRequest = ({ vehicles, user }) => {
     return (
         <div className="vehiclerequest">
 
-         
+
             <div className="vehiclerequest__title">
                 <h3>Vehicle Request</h3>
                 {/* {console.log(vehicles)} */}
@@ -62,12 +63,12 @@ const VehicleRequest = ({ vehicles, user }) => {
                 <textarea value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder="Purpose" id="" cols="30" rows="10"></textarea>
 
 
-                <select onChange={(e) => setSelectVehicle(e.target.name)} name="Request for vehicle" id="cars" value={selectVehicle}>
+                <select onChange={(e) => setSelectVehicle(e.target.value)} id="cars" >
 
                     {
                         data ? (
                             data.data.data.map(vehicle => (
-                                <option key={vehicle.id} name={vehicle.id} value={selectVehicle}>{vehicle.attributes.name}</option>
+                                <option key={vehicle.id} name={vehicle.id} value={vehicle.id}>{vehicle.attributes.name}</option>
                             ))
                         ) : (
                             <option> No Vehicles in the database</option>
