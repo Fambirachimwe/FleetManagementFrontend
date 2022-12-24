@@ -10,7 +10,7 @@ const FuelRequestDetailPage = () => {
     const { id } = useParams();
     const { data } = useQuery(['fuelRequestById', id], () => fetchFuelRequestById(id));
 
-    console.log(data?.data?.data)
+    console.log(data)
     return (
         <div className="vehiclerequest">
 

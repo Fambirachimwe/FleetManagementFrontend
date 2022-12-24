@@ -9,7 +9,7 @@ const SidenavHeader = () => {
         <div className="sidenavHeader">
 
 
-            <h2 className="sidenavHeader__title ">RLB Fleet Management <span>System</span></h2>
+            <h2 className="sidenavHeader__title ">Hasteds Fleet Management <span>System</span></h2>
             <div className="sidenavHeader__menu">
                 <Menu className="menu_icon" />
             </div>

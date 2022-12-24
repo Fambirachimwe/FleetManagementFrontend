@@ -13,7 +13,7 @@ const FuelRequest = ({ user }) => {
 
     const [typeOfRequest, setTypeOfRequest] = useState("topUpVehicle")
     const [volume, setVolume] = useState(null)
-    const [typeOfFuel, setFuelType] = useState("")
+    const [typeOfFuel, setFuelType] = useState("petrol")
     const [purpose, setPurpose] = useState("")
     const [millage, setMillage] = useState(null);
 
@@ -67,7 +67,17 @@ const FuelRequest = ({ user }) => {
                 </select>
 
                 <input required onChange={(e) => setVolume(e.target.value)} type="number" value={volume} placeholder="Volume" />
-                <input required type="text" onChange={(e) => setFuelType(e.target.value)} value={typeOfFuel} placeholder="Type of Fuel" />
+                {/* <input required type="text" onChange={(e) => setFuelType(e.target.value)} value={typeOfFuel} placeholder="Type of Fuel" /> */}
+                <br />
+
+                <label htmlFor="Request for">Select type of fuel</label>
+                <select onChange={(e) => setFuelType(e.target.value)} name="Request for" id="cars">
+                    {/* <option disabled={true} value="Select Type of Fuel">Select Type of fuel</option> */}
+                    <option value="petrol">Petrol</option>
+                    <option value="diesel">Diesel</option>
+                </select>
+
+                <br />
 
                 {/* <input type="text" placeholder="purpose" /> */}
 

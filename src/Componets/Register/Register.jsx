@@ -61,7 +61,7 @@ const Register = () => {
             </div>
 
             <div className="register__left">
-                <h2 className="register__title"> RLB Fleet Management <span>System</span></h2>
+                <h2 className="register__title"> Hasteds Fleet Management <span>System</span></h2>
 
 
                 <div className="register__input">

@@ -12,46 +12,47 @@ import Swal from 'sweetalert2';
 const MoreCardUser = ({ id, url, from }) => {
 
     const queryClient = useQueryClient();
-    const mutation1 = useMutation(deleteFuelRequestById)
-    const mutation2 = useMutation(deleteVehicleRequestById)
+    // const mutation1 = useMutation(deleteFuelRequestById(id), [id])
+    // const mutation2 = useMutation(deleteVehicleRequestById)
+
 
     const handleDelete = () => {
 
         if (from === "fuelRequest") {
 
-            mutation1.mutate({ id }, {
-                onSuccess: () => {
+            //     mutation1.mutate({ id }, {
+            //         onSuccess: () => {
 
-                    queryClient.invalidateQueries('fuelRequestById')
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Delete Successfull',
-                        // text: `Vehicle successfull registered`,
+            //             queryClient.invalidateQueries('fuelRequestById')
+            //             Swal.fire({
+            //                 icon: 'success',
+            //                 title: 'Delete Successfull',
+            //                 // text: `Vehicle successfull registered`,
 
-                    });
-                },
+            //             });
+            //         },
 
-                onError: () => {
-                    // queryClient.invalidateQueries('vehicles')
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Failed to delete Request',
-                        // text: `Vehicle not registered`,
+            //         onError: () => {
+            //             // queryClient.invalidateQueries('vehicles')
+            //             Swal.fire({
+            //                 icon: 'warning',
+            //                 title: 'Failed to delete Request',
+            //                 // text: `Vehicle not registered`,
 
-                    });
-                }
-            })
+            //             });
+            //         }
+            //     })
 
             // deleteFuelRequestById(id).then(data => {
             //     // console.log(data)
             //     queryClient.invalidateQueries('fuelRequestById')
             // })
         } else {
-            deleteVehicleRequestById(id).then(data => {
+            // deleteVehicleRequestById(id).then(data => {
 
-                queryClient.invalidateQueries('vehicleRequestById')
+            //     queryClient.invalidateQueries('vehicleRequestById')
 
-            })
+            // })
         }
 
     }

@@ -65,7 +65,7 @@ const Main = ({ user }) => {
 
                     <Route path="/user-vehicle-requests" element={<UserVehicleRequest />} />
 
-                    <Route path="/issues" element={<UserFuelRequests />} />
+                    {/* <Route path="/issues" element={<UserFuelRequests />} /> */}
 
 
 

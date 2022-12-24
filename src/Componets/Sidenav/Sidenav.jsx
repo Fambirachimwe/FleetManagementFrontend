@@ -55,7 +55,7 @@ const Sidenav = ({ isAuth, userLogout, user }) => {
 
                             <Link to="/user-vehicle-requests"><li className="link__item"> <span><CommuteTwoTone /></span> Vehicle Requests</li></Link>
 
-                            <Link to="/issues"><li className="link__item"> <span><Warning /></span> Issues</li></Link>
+                            {/* <Link to="/issues"><li className="link__item"> <span><Warning /></span> Issues</li></Link> */}
 
                             <Link to="/users"><li className="link__item"> <span><GroupAdd /></span> Users</li></Link>
 
