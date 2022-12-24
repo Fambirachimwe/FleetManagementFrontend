@@ -15,6 +15,7 @@ import UserFuelRequests from '../UserFuelRequests/UserFuelRequests';
 import UserVehicleRequest from '../UserVehicleRequest/UserVehicleRequest';
 import CustomerMain from './CustomerMain';
 import VehicleRequestDetailPage from '../VehicleRequest/VehicleRequestDetailPage';
+import FuelRequestDetailPage from '../FuelRequest/FuelRequestDetailPage';
 
 
 
@@ -33,6 +34,8 @@ const Main = ({ user }) => {
                             (
                                 <>
                                     <Route path="/fuel-request" element={<FuelRequest />} />
+                                    <Route path="/fuel-request/:id" element={<FuelRequestDetailPage />} />
+
                                     <Route path="/vehicle-request" element={<VehicleRequest />} />
                                     <Route path="/vehicle-request/:id" element={<VehicleRequestDetailPage />} />
                                     <Route path="/" element={<CustomerMain />} />

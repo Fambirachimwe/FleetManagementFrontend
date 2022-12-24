@@ -13,7 +13,7 @@ const CustomerMain = ({ user }) => {
     const myFuelRequests = useQuery('fuel-requests', fetchFuelRequest);
 
     const __myFuelRequests = myFuelRequests.data?.data?.data.filter(req => {
-        return req.attributes.applicant.data.id = user.data.user.id
+        return req.attributes.applicant.data.id === user.data.user.id
     })
     // console.log(user.data.user.id)
     const myVehicleRequests = data?.data?.data?.filter(request => {

@@ -175,6 +175,33 @@ export const fetchFuelRequest = async () => {
     return response;
 }
 
+
+export const fetchFuelRequestById = async (id) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(`${base_url}/fuel-requests/${id}?populate=*`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    return response;
+}
+
+
+export const deleteFuelRequestById = async (id) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.delete(`${base_url}/fuel-requests/${id}`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    return response;
+}
+
+
 export const fetchVehicleRequest = async () => {
     const token = localStorage.getItem('token');
     const response = await axios.get(`${base_url}/vehicle-requests?populate=*`, {
@@ -190,6 +217,18 @@ export const fetchVehicleRequest = async () => {
 export const fetchVehicleRequestById = async (id) => {
     const token = localStorage.getItem('token');
     const response = await axios.get(`${base_url}/vehicle-requests/${id}?populate=*`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    return response;
+}
+
+export const deleteVehicleRequestById = async (id) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.delete(`${base_url}/vehicle-requests/${id}`, {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`

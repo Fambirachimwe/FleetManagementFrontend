@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import { register } from '../../api/api';
 import Swal from 'sweetalert2';
+import AuthImage from "../../images/authImage.svg"
 
 
 
@@ -24,6 +25,7 @@ const Register = () => {
 
             // console.log(data);
         }).catch(err => {
+            console.log(err)
 
             Swal.fire({
                 icon: 'warning',
@@ -34,8 +36,8 @@ const Register = () => {
 
         });
 
-        setUsername("");
-        setEmail("");
+        // setUsername("");
+        // setEmail("");
         setPassword("");
         Swal.fire({
             icon: 'success',
@@ -55,7 +57,7 @@ const Register = () => {
 
 
             <div className="register__right">
-
+                <img style={{ width: "80%", position: "relative", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} src={AuthImage} alt="" srcset="" />
             </div>
 
             <div className="register__left">

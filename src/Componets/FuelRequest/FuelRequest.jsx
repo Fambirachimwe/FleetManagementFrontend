@@ -11,7 +11,7 @@ const FuelRequest = ({ user }) => {
 
 
 
-    const [typeOfRequest, setTypeOfRequest] = useState("")
+    const [typeOfRequest, setTypeOfRequest] = useState("topUpVehicle")
     const [volume, setVolume] = useState(null)
     const [typeOfFuel, setFuelType] = useState("")
     const [purpose, setPurpose] = useState("")
@@ -60,7 +60,7 @@ const FuelRequest = ({ user }) => {
             </div>
 
             <form className="fuel__request__form">
-                <select value={typeOfRequest} onChange={(e) => setTypeOfRequest(e.target.value)} name="Request for" id="cars">
+                <select onChange={(e) => setTypeOfRequest(e.target.value)} name="Request for" id="cars">
                     <option disabled={true} value="topUpVehicle">Select Type of requset</option>
                     <option value="topUpVehicle">Top Up Vehicle</option>
                     <option value="personalCar">Personal Car</option>

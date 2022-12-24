@@ -57,7 +57,7 @@ const UserFuelRequestTable = ({ data, user }) => {
 
                                     "Pending" : (
                                         vehicle.attributes.approved ? ("Approved") :
-                                            vehicle.attributes.approved ? false : ("Disaproved")
+                                            vehicle.attributes.approved === null ? ("Pending") : ("Disaproved")
                                     )}
 
                                 </td>
@@ -90,7 +90,7 @@ const UserFuelRequestTable = ({ data, user }) => {
                                                 open === vehicle.id ?
 
                                                     user?.data.user.myRole === "Authenticated" ? (
-                                                        <MoreCardUser id={vehicle.id} url={`/vehicle-request`} />
+                                                        <MoreCardUser from={"fuelRequest"} id={vehicle.id} url={`/fuel-request`} />
                                                     ) : (
                                                         <MoreCard from={"fuelRequest"} id={vehicle.id} url={`/vehicle-request`} />
                                                     )

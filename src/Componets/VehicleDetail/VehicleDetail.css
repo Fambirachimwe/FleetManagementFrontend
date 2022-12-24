@@ -90,6 +90,7 @@ table {
     
     padding: 0 0 24px 24px;
     margin: 0 auto;
+    text-align: end;
 }
 
 .openinnew {
@@ -98,4 +99,5 @@ table {
 
 .details > table > tr {
     /* border-bottom: none !important; */
+    
 }
